@@ -9,12 +9,17 @@ var $form = $('#message-form');
 var $message = $('input[name=message]');
 var $messages = $('.messages');
 
+$('.room-name').text(room);
+
 // socket events
 console.log(name + ' wants to join ' + room);
 
 socket.on('connect', function() {
-
   console.log('Connected to socket.io server!');
+  socket.emit('joinRoom', {
+    name: name,
+    room: room
+  });
 });
 
 socket.on('message', function(message) {
