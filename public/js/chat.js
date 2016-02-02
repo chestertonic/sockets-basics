@@ -26,7 +26,7 @@ socket.on('message', function(message) {
   var momentTimestamp = moment().utc(message.timestamp);
   console.log('New Message: ');
   console.log(message.text);
-  $messages.append('<p><strong>' + message.name + ' ' + momentTimestamp.local().format('h:mm a') + '</strong></p> ');
+  $messages.append('<p><strong>' + message.name + ' ' + momentTimestamp.format('h:mm a') + '</strong></p> ');
   $messages.append('<p>' + message.text + '</p>');
 });
 
